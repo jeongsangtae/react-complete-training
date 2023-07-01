@@ -1,3 +1,5 @@
+import React from "react";
+
 import Expenses from "./components/Expenses";
 
 function App() {
@@ -13,6 +15,15 @@ function App() {
     { id: "e4", title: "책상", price: `120,000`, date: new Date(2023, 4, 30) },
   ];
 
+  // 구 프로젝트 셋업
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+
+  // 최신 프로젝트 셋업
   return (
     <div>
       <h2>Let's get started!</h2>
