@@ -12,6 +12,10 @@ const ExpenseItem = (props) => {
     console.log(title);
   };
 
+  const clickHandlerReset = () => {
+    setTitle(props.title);
+  };
+
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
@@ -20,6 +24,7 @@ const ExpenseItem = (props) => {
         <div className="expense-item__price">{props.price}원</div>
       </div>
       <button onClick={clickHandler}>Change Title</button>
+      <button onClick={clickHandlerReset}>Title Reset</button>
     </Card>
   );
 };
