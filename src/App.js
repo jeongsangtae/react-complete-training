@@ -16,6 +16,11 @@ const App = () => {
     { id: "e4", title: "책상", price: `120,000`, date: new Date(2023, 4, 30) },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
+
   // 구 프로젝트 셋업
   // return React.createElement(
   //   "div",
@@ -27,7 +32,7 @@ const App = () => {
   // 최신 프로젝트 셋업
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
