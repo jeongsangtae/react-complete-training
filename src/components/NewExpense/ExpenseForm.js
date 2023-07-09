@@ -48,6 +48,8 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
+    // 사용자가 입력한 데이터를 NewExpense.js의 saveExpenseDataHandler 함수로 전달하는 코드
+    // ExpenseForm 컴포넌트의 props로 전달된 onSaveExpenseData 콜백 함수를 호출하고, expenseData를 NewExpense.js에 인자로 전달
     props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredPrice("");

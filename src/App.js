@@ -16,6 +16,8 @@ const App = () => {
     { id: "e4", title: "책상", price: `120,000`, date: new Date(2023, 4, 30) },
   ];
 
+  // 콜백 함수
+  // NewExpense.js 컴포넌트에서 전달된 expenseData를 expense라는 매개변수로 사용해 데이터 출력
   const addExpenseHandler = (expense) => {
     console.log("In App.js");
     console.log(expense);
@@ -32,6 +34,7 @@ const App = () => {
   // 최신 프로젝트 셋업
   return (
     <div>
+      {/* NewExpense.js에 onAddExpense라는 이름의 prop으로 addExpenseHandler라는 콜백 함수 전달 */}
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
