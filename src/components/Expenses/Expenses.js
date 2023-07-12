@@ -16,6 +16,17 @@ const Expenses = (props) => {
     console.log(selectedYear);
   };
 
+  // 내가 짠 코드
+  // const selectedExpensesYear = props.items.filter(
+  //   (expense) => expense.date.getFullYear().toString() === filteredYear
+  // );
+
+  // 강의 코드
+  // {}, return을 추가해 함수의 명확성과 가독성을 높임
+  const selectedExpensesYear = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <div>
       <Card className="expenses">
@@ -27,7 +38,7 @@ const Expenses = (props) => {
         />
         {/*  */}
         {/*  */}
-        {props.items.map((expense) => (
+        {selectedExpensesYear.map((expense) => (
           <ExpenseItem
             key={expense.id}
             title={expense.title}
