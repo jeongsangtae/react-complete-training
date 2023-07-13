@@ -23,6 +23,8 @@ const Expenses = (props) => {
 
   // 강의 코드
   // {}, return을 추가해 함수의 명확성과 가독성을 높임
+  // filter를 사용해 props.items 배열의 내용에서 현재 선택된 년도의 데이터만 따로 뽑아 새로운 배열을 만들어 준다.
+  // 여기서 년도 데이터는 문자열로 되어있기 때문에 toString을 사용해 비교한다.
   const selectedExpensesYear = props.items.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
@@ -36,8 +38,8 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {/*  */}
-        {/*  */}
+        {/* selectedExpensesYear 변수에서 따로 뽑아낸 배열 데이터를 map 메소드와 함께 사용해 ExpenseItem 컴포넌트에 전달해 렌더링 해준다. */}
+        {/* key props를 사용해 성능 문제와 React 경고 메시지를 처리 */}
         {selectedExpensesYear.map((expense) => (
           <ExpenseItem
             key={expense.id}
