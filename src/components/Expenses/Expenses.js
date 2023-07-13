@@ -29,6 +29,21 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  let expensesContent = <p>비용 데이터 없음</p>;
+
+  if (selectedExpensesYear.length > 0) {
+    // selectedExpensesYear 변수에서 따로 뽑아낸 배열 데이터를 map 메소드와 함께 사용해 ExpenseItem 컴포넌트에 전달해 렌더링 해준다.
+    // key props를 사용해 성능 문제와 React 경고 메시지를 처리
+    expensesContent = selectedExpensesYear.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        price={expense.price}
+        date={expense.date}
+      />
+    ));
+  }
+
   return (
     <div>
       <Card className="expenses">
@@ -38,16 +53,32 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {/* selectedExpensesYear 변수에서 따로 뽑아낸 배열 데이터를 map 메소드와 함께 사용해 ExpenseItem 컴포넌트에 전달해 렌더링 해준다. */}
-        {/* key props를 사용해 성능 문제와 React 경고 메시지를 처리 */}
-        {selectedExpensesYear.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            price={expense.price}
-            date={expense.date}
-          />
-        ))}
+        {/* 조건부 내용을 출력하는 코드 */}
+        {/* {selectedExpensesYear.length === 0 ? (
+          <p>비용 데이터 없음</p>
+        ) : (
+          selectedExpensesYear.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              price={expense.price}
+              date={expense.date}
+            />
+          ))
+        )} */}
+
+        {/* 조건부 내용을 똑같이 출력하지만 두 개의 독립 표현식으로 나눈 방법 */}
+        {/* {selectedExpensesYear.length === 0 && <p>비용 데이터 없음</p>}
+        {selectedExpensesYear.length > 0 &&
+          selectedExpensesYear.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              price={expense.price}
+              date={expense.date}
+            />
+          ))} */}
+        {expensesContent}
       </Card>
     </div>
   );
