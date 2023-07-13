@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 import "./Expenses.css";
 
 const Expenses = (props) => {
@@ -30,21 +30,8 @@ const Expenses = (props) => {
   });
 
   // 변수안에서 JSX 컨텐츠를 저장할 수 있다.
-  let expensesContent = <p>비용 데이터 없음</p>;
-
-  // return 밖에서 변수와 if문을 사용해 조건부 내용을 출력
-  if (selectedExpensesYear.length > 0) {
-    // selectedExpensesYear 변수에서 따로 뽑아낸 배열 데이터를 map 메소드와 함께 사용해 ExpenseItem 컴포넌트에 전달해 렌더링 해준다.
-    // key props를 사용해 성능 문제와 React 경고 메시지를 처리
-    expensesContent = selectedExpensesYear.map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        price={expense.price}
-        date={expense.date}
-      />
-    ));
-  }
+  // 이 변수를 바로 조건부 내용을 출력하는 JSX 코드에서 사용가능하다.
+  // let expensesContent = <p>비용 데이터 없음</p>;
 
   return (
     <div>
@@ -56,6 +43,8 @@ const Expenses = (props) => {
           onChangeFilter={filterChangeHandler}
         />
         {/* 삼항 연산자를 사용해 조건부 내용을 출력하는 코드 */}
+        {/* selectedExpensesYear 변수에서 따로 뽑아낸 배열 데이터를 map 메소드와 함께 사용해 ExpenseItem 컴포넌트에 전달해 렌더링 해준다. */}
+        {/* key props를 사용해 성능 문제와 React 경고 메시지를 처리 */}
         {/* {selectedExpensesYear.length === 0 ? (
           <p>비용 데이터 없음</p>
         ) : (
@@ -80,7 +69,7 @@ const Expenses = (props) => {
               date={expense.date}
             />
           ))} */}
-        {expensesContent}
+        <ExpensesList items={selectedExpensesYear} />
       </Card>
     </div>
   );
