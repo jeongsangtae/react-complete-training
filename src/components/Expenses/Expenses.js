@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 
 const Expenses = (props) => {
@@ -42,6 +43,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+        <ExpensesChart expenses={selectedExpensesYear} />
         {/* 삼항 연산자를 사용해 조건부 내용을 출력하는 코드 */}
         {/* selectedExpensesYear 변수에서 따로 뽑아낸 배열 데이터를 map 메소드와 함께 사용해 ExpenseItem 컴포넌트에 전달해 렌더링 해준다. */}
         {/* key props를 사용해 성능 문제와 React 경고 메시지를 처리 */}
