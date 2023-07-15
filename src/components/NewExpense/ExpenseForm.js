@@ -89,6 +89,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        {/* ExpenseForm 컴포넌트에서 onCancel props에 연결된 button을 클릭하면 stopEditingHandler이 호출되어 isEditing이 다시 false로 변경되면서, Add New Expense 버튼이 다시 표시*/}
         <button type="button" onClick={props.onCancel}>
           Cancel
         </button>
