@@ -43,6 +43,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+        {/* ExpensesChart에 expenses라는 이름의 prop으로 새 배열을 만든 selectedExpensesYear 함수를 보낸다. */}
         <ExpensesChart expenses={selectedExpensesYear} />
         {/* 삼항 연산자를 사용해 조건부 내용을 출력하는 코드 */}
         {/* selectedExpensesYear 변수에서 따로 뽑아낸 배열 데이터를 map 메소드와 함께 사용해 ExpenseItem 컴포넌트에 전달해 렌더링 해준다. */}
