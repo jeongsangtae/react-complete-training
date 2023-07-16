@@ -4,15 +4,15 @@ import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 
 const DUMMY_EXPENSES = [
-  { id: "e1", title: "휴지", price: `18,000`, date: new Date(2021, 2, 21) },
-  { id: "e2", title: "TV", price: `800,000`, date: new Date(2022, 0, 30) },
+  { id: "e1", title: "휴지", price: `18000`, date: new Date(2021, 2, 21) },
+  { id: "e2", title: "TV", price: `800000`, date: new Date(2022, 0, 30) },
   {
     id: "e3",
     title: "자동차 보험",
-    price: `294,000`,
+    price: `294000`,
     date: new Date(2023, 5, 30),
   },
-  { id: "e4", title: "책상", price: `120,000`, date: new Date(2023, 4, 30) },
+  { id: "e4", title: "책상", price: `120000`, date: new Date(2023, 4, 30) },
 ];
 
 const App = () => {
